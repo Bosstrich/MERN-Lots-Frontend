@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body{
+
+  font-family: 'Nunito';
+}
+
+
+@font-face {
+  font-family: 'LOT';
+  src: url('/LOT.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@layer components{
+
+  .navbar{
+
+    @apply fixed h-16 top-0 left-0 right-0 shadow-md z-30 shadow-black/25;
+  }
+
+  .btn{
+
+    @apply px-6 py-3 rounded-md text-base text-center;
+
+  }
+
+  .link{
+
+    @apply hover:text-primary hover:underline hover:underline-offset-8 
+  }
+
+}
+
+@layer utilities{
+
+  .card-x{
+
+    @apply px-4
+  }
+  
+  .padding-x{
+
+    @apply sm:px-24 px-8;
+
+  }
+
+
+}
