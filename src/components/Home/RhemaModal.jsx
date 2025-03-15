@@ -10,11 +10,11 @@ import './swiper.css'
 
 const RhemaModal = ({ handleClose, showModal, rhemas }) => {
 
-    const sampleRhema = `
-    Why do you call me 'LORD, LORD', and do not do what I tell you?
+    //     const sampleRhema = `
+    //     Why do you call me 'LORD, LORD', and do not do what I tell you?
 
- Put into practice the words that I have spoken, like a man who built his house and laid its foundation on the rock. The flood rose, and the store broke against the house, but it could not shake it.'
-    `
+    //  Put into practice the words that I have spoken, like a man who built his house and laid its foundation on the rock. The flood rose, and the store broke against the house, but it could not shake it.'
+    //     `
     
     return ( 
         <div className={`${!showModal?  'opacity-0' : 'opacity-100 fixed inset-0 bg-black bg-opacity-60 z-40 transition-all duration-500'} `} >
@@ -49,10 +49,10 @@ const RhemaModal = ({ handleClose, showModal, rhemas }) => {
 
                         ))}
 
-                        <SwiperSlide className='relative z-3 p-7 text-lg text-justify leading-6'>    
+                        {/* <SwiperSlide className='relative z-3 p-7 text-lg text-justify leading-6'>    
                             <p className="relative z-10 mb-5">{sampleRhema}</p>
                             <div className='bg-gradient-to-b from-primary/15 via-black/30 to-secondary/30  absolute z-0 w-full h-full '></div> 
-                        </SwiperSlide>
+                        </SwiperSlide> */}
 
                     </Swiper>
                 </div>

@@ -1,5 +1,7 @@
 import {useEffect, useRef, useState} from 'react';
 import axios from 'axios';
+const backendURL =  import.meta.env.VITE_BACKEND_URL;
+console.log('Backend uri: '+ backendURL);
 
 import Button from '../Button';
 
@@ -17,8 +19,7 @@ const ButtonRange = ({handleModalOpen, setRhemas }) => {
 
     
     const grabRhema = () => {
-
-        axios.get(`/api/rhemas/random?size=${rhemaCount}`, {
+        axios.get(`http://localhost:4000/api/rhemas/random`, {
 
             params: {
 
