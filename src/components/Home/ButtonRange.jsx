@@ -19,7 +19,7 @@ const ButtonRange = ({handleModalOpen, setRhemas }) => {
 
     
     const grabRhema = () => {
-        axios.get(`http://localhost:4000/api/rhemas/random`, {
+        axios.get(`${backendURL}/api/rhemas/random`, {
 
             params: {
 
