@@ -27,12 +27,12 @@ body{
 
   .navbar{
 
-    @apply fixed h-16 top-0 left-0 right-0 shadow-md z-30 shadow-black/25;
+    @apply fixed h-16 top-0 w-full shadow-md z-30 shadow-black/25;
   }
 
   .btn{
 
-    @apply px-6 py-3 rounded-md text-base text-center;
+    @apply px-6 py-3 rounded-xl text-base text-center;
 
   }
 

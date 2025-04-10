@@ -1,6 +1,7 @@
 
 const Button = ({variant = 'primary', text, className= '', link, onClick}) => {
 
+
     
     const openLink = () => {
         
@@ -27,8 +28,10 @@ const Button = ({variant = 'primary', text, className= '', link, onClick}) => {
     const btnVariant = {
 
         primary: `bg-primary btn text-white font-semibold hover:opacity-90`,
-        secondary: 'text-primary bg-dark-1 btn font-Montserrat border border-primary hover:bg-primary hover:text-dark-1 transition delay 300',
-        white: 'text-black bg-white w-[200px] rounded-md font-medium py-3 hover:opacity-90'
+        secondary: 'btn text-primary bg-dark-1 font-Montserrat border border-primary hover:bg-primary hover:text-dark-1 transition delay 300',
+        white: 'text-black bg-white w-[200px] rounded-md font-medium py-3 hover:opacity-90',
+        disabled: `btn text-white bg-slate-gray font-semibold`
+
     }
 
     return (

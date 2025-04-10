@@ -3,22 +3,22 @@ import axios from 'axios';
 const backendURL =  import.meta.env.VITE_BACKEND_URL;
 console.log('Backend uri: '+ backendURL);
 
+//custom Hooks:
+import useLocalStorage from '../../hooks/useLocalStorage';
+
+//Components
 import Button from '../Button';
 
 
-const ButtonRange = ({handleModalOpen, setRhemas }) => {
+const ButtonRange = ({handleModalOpen, setRhemas, setLoading }) => {
 
-    const [rhemaCount, setRhemaCount] = useState(() => {
+    const [rhemaCount, setRhemaCount] = useLocalStorage('rhemaCount', 1); 
 
-        return Number(localStorage.getItem('rhemaCount')) || 1;
-    });
-
-    useEffect(() => {
-        localStorage.setItem('rhemaCount', rhemaCount);
-      }, [rhemaCount]);
-
-    
     const grabRhema = () => {
+
+        setLoading(true);
+        handleModalOpen();
+
         axios.get(`${backendURL}/api/rhemas/random`, {
 
             params: {
@@ -31,7 +31,6 @@ const ButtonRange = ({handleModalOpen, setRhemas }) => {
             if (response.data.length) {
                 console.log('Random Rhemas:', response.data);
                 setRhemas(response.data);
-                handleModalOpen();
 
             } else {
                 console.log(response.data.message);
@@ -40,6 +39,10 @@ const ButtonRange = ({handleModalOpen, setRhemas }) => {
         .catch((err) => {
 
             console.log('Error:', err);
+        })
+        .finally(() => {
+
+            setLoading(false);
         })
 
 

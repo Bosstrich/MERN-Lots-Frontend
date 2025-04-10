@@ -32,8 +32,8 @@ Lots are words, which are utterances, or 'rhema's'. Not only it is biblical, but
 
 Leviticus, Joshua, Samuel, 1 Chronicles, Nehemiah, Psalms, Joel, Obadiah, Jonah, Nahum, Matthew, Mark, Luke, John, and Acts **ALL** speak of lots, which are rhema's.
 
-Proverbs 16:33 states it **BEST** and very clearly, that it is the recommended way to ask GOD/Jehovah/Father to decide for us:
-The lot is cast into the lap, but the disposing of it is from Jehovah. -Proverbs 16:33
+**Proverbs 16:33** states it **BEST** and very clearly, that it is the recommended way to ask GOD/Jehovah/Father to decide for us:
+The lot is cast into the lap, but the disposing of it is from Jehovah. 
 
 Now, the whole disposing of it is from Jehovah means that GOD is the one making the decision. He does this through his Holy Spirit.
 Therefore, Lots is the best way to get the Word and opinion of the LORD when you do not yet hear his still samll 
