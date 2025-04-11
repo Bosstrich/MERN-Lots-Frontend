@@ -13,6 +13,9 @@ const Hero = () => {
     const [modalVisibility, setModalVisibility] = useLocalStorage('modalVisibility', false);
     const [rhemas, setRhemas] = useLocalStorage('rhemas', []);
 
+ 
+      
+
     useModalVisibility(modalVisibility);
 
     const handleModal = () => {
@@ -26,7 +29,7 @@ const Hero = () => {
             <section className='bg-gray-100'>
                 <div className='md:flex md:flex-row-reverse md:justify-center gap-16 mt-8 padding-x pb-20'>
                     <div className='md:w-[30%] flex justify-center pt-24'>
-                        <img className='max-w-[250px] object-contain' src={LotsLogo} alt="" />
+                        <img className='max-w-[250px] object-contain pointer-events-none' src={LotsLogo} alt="" />
                     </div>  
                     <div className= 'md:w-[60%] text-center md:text-left'>
                         <div className="w-full pt-10 md:pt-36">

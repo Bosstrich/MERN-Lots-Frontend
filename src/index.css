@@ -29,6 +29,31 @@ body{
 
     @apply fixed h-16 top-0 w-full shadow-md z-30 shadow-black/25;
   }
+  .bottom-tooltip {
+    @apply relative;
+  }
+  
+  .bottom-tooltip::before {
+    pointer-events: none;
+    content: attr(data-tip);
+    @apply absolute px-3 py-2 left-1/2 top-5 w-max max-w-xs -translate-x-1/2 translate-y-full bg-gray-700 text-white rounded-md opacity-0 transition-all delay-500;
+  }
+  
+  .bottom-tooltip::after {
+    pointer-events: none;
+
+    content: '';
+    @apply absolute left-1/2 bottom-[-9px] h-0 w-0 -translate-x-1/2 border-8 border-t-transparent border-l-transparent border-b-gray-700 border-r-transparent opacity-0 transition-all delay-500;
+  }
+  
+  .bottom-tooltip:hover::before {
+    opacity: 100;
+  }
+  
+  .bottom-tooltip:hover::after {
+    opacity: 100;
+  }
+
 
   .btn{
 

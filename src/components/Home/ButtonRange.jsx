@@ -13,11 +13,25 @@ import Button from '../Button';
 const ButtonRange = ({handleModalOpen, setRhemas, setLoading }) => {
 
     const [rhemaCount, setRhemaCount] = useLocalStorage('rhemaCount', 1); 
+    const [cache, setCache] = useLocalStorage('rhemaCache', {});
+
+    useEffect(() => {
+        // Pre-fetch 1 rhema when component mounts
+        axios.get(`${backendURL}/api/rhemas/random`, {
+          params: { size: 1 },
+          timeout: 10000    
+        })
+        .then(response => {
+            //
+        })
+        .catch(console.error);
+    }, []);
 
     const grabRhema = () => {
 
         setLoading(true);
         handleModalOpen();
+        
 
         axios.get(`${backendURL}/api/rhemas/random`, {
 

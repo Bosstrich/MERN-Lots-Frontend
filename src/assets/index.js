@@ -3,6 +3,7 @@ import step2 from  './chain-icon.png';
 import step3 from  './dove-icon.png';
 import scriptureBG from './scripture-bg.png';
 import aboutIcon from './lots_logo-main.png';
+import diceAnim from './diceAnimation.json'
 
 export {
 
@@ -11,4 +12,5 @@ export {
     step3,
     scriptureBG,
     aboutIcon,
+    diceAnim
 }

@@ -22,7 +22,7 @@ export const steps = [
 ];
 
 export const aboutText = `
-  This is a symbol of an Urimmm (meaning Lights), and a Thummim (meaning Perfections). They are two holy objects used by Jewish Priests to cast lots in order to know GOD's will
+  This is a symbol of an Urim (the white One), and a Thummim (the black one). The Urim means perfection, curse, fault, guilt or "NO", whereas the Thummim means light, truth, innocence, or "YES". They are two holy objects used by Hebrew High Priests to cast lots in order to know GOD's will
 
   The LOTS Website was designed, and created by a private company as a headstart to enable you to draw near to GOD, and know his will for your life by casting LOTS.
 `
