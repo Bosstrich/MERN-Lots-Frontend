@@ -13,9 +13,6 @@ const Hero = () => {
     const [modalVisibility, setModalVisibility] = useLocalStorage('modalVisibility', false);
     const [rhemas, setRhemas] = useLocalStorage('rhemas', []);
 
- 
-      
-
     useModalVisibility(modalVisibility);
 
     const handleModal = () => {
@@ -33,7 +30,7 @@ const Hero = () => {
                     </div>  
                     <div className= 'md:w-[60%] text-center md:text-left'>
                         <div className="w-full pt-10 md:pt-36">
-                            <h1 className="text-primary text-4xl font-libre font-semibold">Welcome to LOTS!</h1>
+                            <h1 className="text-4xl font-libre">Welcome to LOTS!</h1>
                             <h2 className="text-lg sm:text-xl md:text-2xl my-1 md:my-5">Receive oracles from GOD, the Holy Trinity!</h2>
                             <ButtonRange handleModalOpen={handleModal} setRhemas={setRhemas} setLoading={setLoading}/>
                         </div>

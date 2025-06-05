@@ -6,10 +6,10 @@ const Navbar = () => {
     return ( 
         <header>
             <nav className='navbar padding-x flex justify-between items-center bg-light text-white'>
-                <a href='/' className='flex items-center gap-2'>
+                <Link to='/' className='flex items-center gap-2'>
                      <img src="lots_icon.png" className='w-12'/>
                     <h1 className='select-none font-source text-2xl'>LOTS</h1>
-                </a>
+                </Link>
                 <div className='hidden md:flex items-center justify-center gap-5'>
                     <Link className='link' to="/"><h2>Home</h2></Link>
                     <Link className='link' to="/instructions"><h2>Instructions</h2></Link>
