@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@lottiefiles/react-lottie-player": "^3.6.0",
     "axios": "^1.7.9",
     "lottie-react": "^2.4.1",
