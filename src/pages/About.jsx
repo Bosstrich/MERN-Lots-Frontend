@@ -11,7 +11,7 @@ const About = () => {
                 </div>
                 <div className="mt-8 px-8 py-8 bg-white rounded-md shadow-md text-center max-w-[40rem] mx-auto">
                     <div className="flex justify-center">
-                        <img className="w-[15rem]" src={aboutIcon} alt="lots-logo" />
+                        <img loading="eager" className="w-[15rem]" src={aboutIcon} alt="lots-logo" />
                     </div>
                     {aboutText.split('\n\n').map((paragraph, index) => (
                         <p key={index} className="py-3 text-lg">{paragraph}</p>

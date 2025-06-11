@@ -4,16 +4,20 @@ import Modal from "../../../common/Modal";
 import RhemaSwiper from "./RhemaSwiper";
 import { IoIosCloseCircle } from "react-icons/io";
 import { Player } from "@lottiefiles/react-lottie-player";
+import useModal from "../../../hooks/useModal";
+import { useModalContext } from "../../../hooks/useModalContext";
 import { diceAnim } from "../../../assets";
 
-const RhemaModal = ({ handleClose, showModal, rhemas, loading }) => {
+const RhemaModal = ({rhemas, loading}) => {
+
+  const {isVisible, modalType, closeModal} = useModal();
   //     const sampleRhema = `
   //     Why do you call me 'LORD, LORD', and do not do what I tell you?
 
   //  Put into practice the words that I have spoken, like a man who built his house and laid its foundation on the rock. The flood rose, and the store broke against the house, but it could not shake it.'
   //     `
   return (
-    <Modal showModal={showModal}>
+    <Modal showModal={isVisible && modalType === 'rhema'}>
       {loading ? (
         <>
           <div className="flex items-center justify-center rounded-lg">
@@ -34,7 +38,7 @@ const RhemaModal = ({ handleClose, showModal, rhemas, loading }) => {
             </h1>
             <div
               className="text-2xl sm:text-3xl cursor-pointer text-white font-bold right-5 top-5"
-              onClick={handleClose}
+              onClick={closeModal}
             >
               <IoIosCloseCircle />
             </div>

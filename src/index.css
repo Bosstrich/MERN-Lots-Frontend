@@ -58,7 +58,7 @@ body{
 
   .btn{
 
-    @apply px-6 py-3 rounded-xl text-base text-center;
+    @apply px-5 py-2.5 rounded-2xl text-base text-center;
 
   }
 

@@ -1,8 +1,6 @@
 
-const Button = ({variant = 'primary', text, className= '', link, onClick}) => {
-
-
-    
+const Button = ({variant = 'primary', text, className= '', link, onClick, type}) => {
+   
     const openLink = () => {
         
         if (link) {
@@ -27,17 +25,19 @@ const Button = ({variant = 'primary', text, className= '', link, onClick}) => {
 
     const btnVariant = {
 
-        primary: `bg-primary btn text-white font-semibold hover:opacity-90`,
-        secondary: 'btn text-primary bg-dark-1 font-Montserrat border border-primary hover:bg-primary hover:text-dark-1 transition delay 300',
-        white: 'text-black bg-white w-[200px] rounded-md font-medium py-3 hover:opacity-90',
+        primary: `bg-primary btn text-white font-Montserrat hover:opacity-90`,
+        secondary: 'btn text-white bg-dark-1 font-Montserrat border border-white hover:bg-gray-200 hover:text-black transition delay 300',
+        white: 'btn text-black bg-gray-100 font-Montserrat hover:opacity-90',
         disabled: `btn text-white bg-slate-gray font-semibold`
 
     }
 
     return (
         
-        <button className={`${btnVariant[variant]} ${className}`} 
-                onClick={handleClick}>
+        <button 
+          className={`${btnVariant[variant]} ${className}`} 
+          type={type}
+          onClick={handleClick}>
             {text}
         </button>
 

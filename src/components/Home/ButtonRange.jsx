@@ -5,30 +5,18 @@ console.log("Backend uri: " + backendURL);
 
 //custom Hooks:
 import useLocalStorage from "../../hooks/useLocalStorage";
+import useModal from "../../hooks/useModal";
 
 //Components
 import Button from "../Button";
 
-const ButtonRange = ({ handleModalOpen, setRhemas, setLoading }) => {
+const ButtonRange = ({ setRhemas, setLoading }) => {
   const [rhemaCount, setRhemaCount] = useLocalStorage("rhemaCount", 1);
-  const [cache, setCache] = useLocalStorage("rhemaCache", {});
-
-  useEffect(() => {
-    // Pre-fetch 1 rhema when component mounts
-    axios
-      .get(`${backendURL}/api/rhemas/random`, {
-        params: { size: 1 },
-        timeout: 10000,
-      })
-      .then((response) => {
-        //
-      })
-      .catch(console.error);
-  }, []);
+  const {openModal} = useModal();
 
   const grabRhema = () => {
     setLoading(true);
-    handleModalOpen();
+    openModal('rhema');
 
     axios
       .get(`${backendURL}/api/rhemas/random`, {

@@ -1,4 +1,5 @@
 import { step1, step2, step3 } from "../assets";
+import {faKey, faEnvelope, faUser} from '@fortawesome/free-solid-svg-icons'
 
 export const steps = [
   {
@@ -97,10 +98,28 @@ from the Bible. Test it for yourself and leave it between you and Jesus whether 
 see a avery obvious intelligent control over the results depending on your situation at that time.
 
 I hope this has blessed all of you! GOD bless you all! Glory be to GOD for this very helpful tool for us!
-
-
-
-
-
-
 `;
+
+
+export const inputPropsValue = [
+  {
+    type: 'text',
+    name: 'username',
+    placeholder: 'Username',
+    icon: faUser
+  },
+  {
+    type: 'email',
+    name: 'email',
+    placeholder: 'Email',
+    icon: faEnvelope
+
+  },
+  {
+    type: 'password',
+    name: 'password',
+    placeholder: 'Password',
+    icon: faKey
+  }
+]
+

@@ -1,0 +1,118 @@
+//libraries
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+//constants
+import { inputPropsValue } from "../constants"
+import { validationSchemas } from "../constants/shema";
+
+//components
+import { IoIosCloseCircle } from "react-icons/io";
+import Button from "../components/Button";
+import Modal from "./Modal";
+import InputBox from "./InputBox";
+import toast from 'react-hot-toast';
+
+//hooks
+import useModal from "../hooks/useModal";
+import useAuth from "../hooks/useAuth";
+
+const UserFormAuth = ({ type, setType}) => {
+
+  const { isVisible, modalType, closeModal } = useModal();
+  const {login, isLoading} = useAuth();
+  const { register, handleSubmit, reset, formState: {errors}} = useForm({
+
+      resolver: yupResolver(validationSchemas[type])
+  });
+
+console.log("type:", type);
+console.log("schema:", validationSchemas[type]);
+  const handleChange = (type) => {
+
+    setType(type);
+    reset();
+  }
+
+  const onSubmit = (formData) => {
+    console.log('Submitting:', formData); // Debug what's actually being submitted
+
+    const route = type === 'sign-in'? '/api/users/login' : '/api/users/signup';
+    const message = type === 'sign-in' ? 'Logged In!' : 'Signed Up!';
+    login(formData, route, () => {
+      toast.success(`Successfully ${message}`);
+
+      closeModal();
+      reset();
+
+    }, (message) => {
+
+      toast.error(message)
+    });
+
+
+  }
+
+  return (
+    <Modal type={type} showModal={isVisible && modalType === "auth"}>
+      <section className="bg-white w-full sm:w-[400px] rounded-md">
+        <div className="flex cursor-pointer text-4xl pt-5 pr-5 ">
+          <IoIosCloseCircle className="ml-auto hover:text-black/80" onClick={() => closeModal()} />
+        </div>
+        <form className="pb-7 pt-3 px-7" onSubmit={handleSubmit(onSubmit)} noValidate>
+          <h1 className="text-center text-2xl font-semibold mb-3">
+            {type === "sign-in" ? "Log In" : "Sign Up"}
+          </h1>
+          <PrivacyNoticeText/>
+          {
+            inputPropsValue
+              .filter((input) => type === 'sign-up' || input.name !== 'email') 
+              .map((inputProps) => {
+
+                return <InputBox 
+                        {...register(inputProps.name)}
+
+                        key={inputProps.name}
+                        {...inputProps}
+                        error={errors[inputProps.name]?.message}
+                        className={(inputProps.name !== 'password') && !errors[inputProps.name] ?'mb-5' : ''}
+                      />
+              })              
+          } 
+          {type == 'sign-in' ?
+            <p className="text-sm my-5">
+              Don't have a Bethel Account Yet?
+              <span
+                onClick={() => handleChange('sign-up')}
+                className="text-secondary text-sm font-semibold cursor-pointer mx-1">Sign Up</span>
+            </p>
+            :
+            <p className="text-sm my-5">
+              Already have a Bethel Account?
+              <span 
+                onClick={() => handleChange('sign-in')}
+                className="text-secondary text-sm font-semibold cursor-pointer mx-1">Sign In</span>
+            </p>
+          }
+          <Button type='submit' className="capitalize w-full" text={type.replace('-', ' ')}/>
+        </form>
+      </section>
+    </Modal>
+  );
+};
+
+
+const PrivacyNoticeText = () => {
+
+  return (
+    <p className="leading-5 text-center text-sm mb-5 px-1">
+      By continuing, you agree to our 
+      <span className="text-secondary cursor-pointer px-1">
+        User Agreement
+      </span>
+      and acknowledge that you understand the Privacy Policy.
+    </p>
+  )
+}
+
+export default UserFormAuth;

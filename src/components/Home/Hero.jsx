@@ -2,24 +2,18 @@ import LotsLogo from '../../assets/lots_logo.png';
 import ButtonRange from './ButtonRange';
 import RhemaModal from './RhemaModal/RhemaModal';
 import useLocalStorage from '../../hooks/useLocalStorage';
+import useBodyScrolLock from '../../hooks/useBodyScrollLock'
+import { useModalContext } from '../../hooks/useModalContext';
 import { useState, useEffect } from 'react';
-import useModalVisibility from '../../hooks/useModalVisibility';
 
 const Hero = () => {
 
+
     const [loading, setLoading] = useState(false);
-
-
-    const [modalVisibility, setModalVisibility] = useLocalStorage('modalVisibility', false);
     const [rhemas, setRhemas] = useLocalStorage('rhemas', []);
+    const { modalVisibility } = useModalContext();
+    useBodyScrolLock(modalVisibility);
 
-    useModalVisibility(modalVisibility);
-
-    const handleModal = () => {
-
-        setModalVisibility(!modalVisibility);
-
-    }
 
     return (  
         <>
@@ -32,11 +26,11 @@ const Hero = () => {
                         <div className="w-full pt-10 md:pt-36">
                             <h1 className="text-4xl font-libre">Welcome to LOTS!</h1>
                             <h2 className="text-lg sm:text-xl md:text-2xl my-1 md:my-5">Receive oracles from GOD, the Holy Trinity!</h2>
-                            <ButtonRange handleModalOpen={handleModal} setRhemas={setRhemas} setLoading={setLoading}/>
+                            <ButtonRange setRhemas={setRhemas} setLoading={setLoading}/>
                         </div>
                     </div>
                 </div>
-                <RhemaModal handleClose={handleModal} showModal={modalVisibility} rhemas={rhemas} loading={loading} />
+                <RhemaModal rhemas={rhemas} loading={loading} />
             </section>
         </>
      );
