@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Button from './Button';
 import useModal from '../hooks/useModal';
-import UserFormAuth from '../common/userFormAuth';
+import UserFormAuth from '../common/UserFormAuth';
 import { Link } from 'react-router-dom';
 import { useUserContext } from '../hooks/useUserContext';
 import { usePanel } from '../hooks/usePanel';
