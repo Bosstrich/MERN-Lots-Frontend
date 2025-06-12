@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useContext, useState } from "react";
 import { useUserContext } from "./useUserContext";
-const backendURL = import.meta.env.VITE_LOCAL_URI;
+const backendURL = import.meta.env.VITE_BACKEND_URL;
 
 const useLogin = () => {
   const [isLoading, setIsLoading] = useState(null);
